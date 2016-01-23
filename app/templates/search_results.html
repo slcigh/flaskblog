@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+
+<h1>Search results for "{{ query }}":</h1>
+{% for post in results %}
+    <p>{{ post }}</p>
+    <p> {{ post.title }} </p>
+    <p>{{ post.body | safe }}</p>
+{% endfor %}
+</body>
+</html>

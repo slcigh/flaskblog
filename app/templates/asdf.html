@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <title>Bootstrap 101 Template</title>
+
+    <!-- Bootstrap -->
+    <link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/test.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/reset.css') }}" rel="stylesheet">
+
+
+    <link href="{{ url_for('static', filename='styles/default.css') }}" rel="stylesheet">
+
+    <script src="{{ url_for('static', filename='highlight.pack.js') }}"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    <title>edutilos's blog</title>
+</head>
+
+<body>
+<div class="full-width-div">
+    <div class="navbar navbar-inverse navbar-fixed-top nav-bg" role="navigation">
+
+        <div class="collapse navbar-collapse">
+
+            <ul class="nav navbar-nav navul">
+                <li class="nav-item active"><a class="navbar-brand" href="/">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="/about">about</a></li>
+                <li class="nav-item"><a class="nav-link" href="/link">Link</a></li>
+            </ul>
+            <div class="col-lg-2 col-md-2 col-sm-2 navbar-right">
+                <form class="navbar-form" method="post" action="{{ url_for('.search') }}">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Search for..." name="search">
+                            <span class="input-group-btn">
+                                <button class="btn btn-default" type="submit">Go!</button>
+                            </span>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="container">
+
+
+        <div class="blog-header">
+            <h1 class="blog-title">LC's Blog</h1>
+            <p class="lead blog-description">lost in code</p>
+        </div>
+
+
+        <div class="row">
+
+            <div class="col-sm-8 col-lg-8">
+                {% for post in posts.items %}
+                    {% if post.not_hide %}
+                        <div class="new-post inside-bg-post"> <!-- start new-post -->
+
+                            <div class="date">
+                                <div class="main">
+                                    <div class="rightside">
+                                        <span>{{ post.timestamp }}</span>
+                                    </div>
+                                </div>
+                            </div> <!-- end date -->
+
+                            <p class="info">
+                                {% for i in post.tags %}
+                                    <a href="/tags/{{ i.name }}/1" rel="category tag">{{ i.name }}</a>&nbsp;
+                                {% endfor %} | <a href="/{{ post.category.name }}/1"
+                                                  class="cat">{{ post.category.name }}</a>
+                            </p>
+
+                            <h2><a href="post/{{ post.id }}">{{ post.title }}</a></h2>
+
+
+                            <blockquote>
+                                <p>
+
+                                    {{ post.part | safe }}
+
+                                </p>
+
+                            </blockquote>
+                            <a class="btn btn-primary readmore" href="post/{{ post.id }}" role="button">
+                                readmore
+                            </a>
+                            <div class="clear"></div>
+                        </div> <!-- end new-post -->
+                        <div class="add-blank"></div>
+                    {% endif %}
+                {% endfor %}
+
+
+
+
+                <nav>
+                    <ul class="pager">
+                        {% if posts.has_prev %}
+                            <li><a href="{{ posts.prev_num }}">&laquo; Future </a></li>
+                        {% else %}
+                            <li class="disabled"><a href="#">&laquo; Future </a></li>
+                        {% endif %}
+                        {% if posts.has_next %}
+                            <li><a href="{{ posts.next_num }}">Past &raquo;</a></li>
+                        {% else %}
+                            <li class="disabled"><a href="">Past &raquo;<</a></li>
+                        {% endif %}
+
+                    </ul>
+                </nav>
+            </div>
+
+
+            <div class="col-sm-3 col-sm-offset-1 col-lg-3 col-lg-offset-1">
+                <div class="inside-bg-sidebar">
+                    <div class="sidebar-block">
+                        <h3 class="sidebar-title">CATEGORIES</h3>
+                        <ul class="cat">
+                            {% for c in categories %}
+                                <li id="categories"><a href="/{{ c.name }}/1">{{ c.name }}</a></li>
+                            {% endfor %}
+                        </ul>
+                    </div> <!-- end sidebar block -->
+
+                    <div class="sidebar-block">
+                        <h3 class="sidebar-title">TAGS</h3>
+                        <ul class="tags blue">
+                            {% for (name,count) in tags %}
+                                <li>
+                                    <a href="/tags/{{ name }}/1">{{ name }}<span>{{ count }}</span></a>
+                                </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+    <script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+    <div class="footer">
+        <a href="http://oyasumi.me">LC&#039;s Blog</a>
+        <span>Powered by <a href="http://flask.pocoo.org/">Flask</a>.</span>
+    </div>
+
+</div>
+
+</body>
+</html>
