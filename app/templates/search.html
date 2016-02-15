@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block container_all %}
+    <h1>Search results for "{{ query }}":</h1>
+    <div class="col-sm-10 col-lg-10">
+        <div class="new-post inside-bg-post">
+            <h1>Search results for "{{ query }}":</h1>
+            {% if results %}
+                <ul>
+                    {% for post in results %}
+                        {% if post.not_hide %}
+                            <li>
+                                <a href="{{ url_for('.post',id=post.id) }}">{{ post.title }}</a>
+                            </li>
+                        {% endif %}
+                    {% endfor %}
+                </ul>
+            {% endif %}
+        </div>
+        <div class="add-blank"></div>
+    </div>
+{% endblock %}

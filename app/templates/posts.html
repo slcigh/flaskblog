@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+{% block container_all %}
+    <div class="row fill">
+        <div class="col-sm-12 col-lg-12">
+            <div class="new-post inside-bg-post fill"> <!-- start new-post -->
+                <div class="date">
+                    <div class="main">
+                        <div class="rightside">
+                            <span>{{ posts.timestamp }}</span>
+                        </div>
+                    </div>
+                </div> <!-- end date -->
+
+                <p class="info">
+                    {% for i in posts.tags %}
+                        <a href="/tags/{{ i.name }}/1" rel="category tag">{{ i.name }}</a>&nbsp;
+                    {% endfor %} | <a href="/{{ posts.category.name }}/1"
+                                      class="cat">{{ posts.category.name }}</a>
+                </p>
+
+                <h2><a href="post/{{ posts.id }}">{{ posts.title }}</a></h2>
+
+
+                <p>
+
+                    {{ posts.body | safe }}
+
+                </p>
+
+
+                <div class="clear"></div>
+
+
+            </div> <!-- end new-post -->
+                <!-- 多说评论框 start -->
+                <div class="ds-thread" data-thread-key="{{ posts.timestamp }}|{{ posts.id }}"
+                     data-title="{{ posts.title }}"
+                     data-url="http://edutilos.sinaapp.com{{ url_for('.post',id=posts.id) }}"></div>
+                <!-- 多说评论框 end -->
+                <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+                <script type="text/javascript">
+                    var duoshuoQuery = {short_name: "edutilos"};
+                    (function () {
+                        var ds = document.createElement('script');
+                        ds.type = 'text/javascript';
+                        ds.async = true;
+                        ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+                        ds.charset = 'UTF-8';
+                        (document.getElementsByTagName('head')[0]
+                        || document.getElementsByTagName('body')[0]).appendChild(ds);
+                    })();
+                </script>
+                <!-- 多说公共JS代码 end -->
+
+        </div>
+    </div>
+{% endblock %}

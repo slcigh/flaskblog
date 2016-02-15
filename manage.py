@@ -1,13 +1,11 @@
 # -*- coding:utf8 -*-
 # encoding=utf-8
 # !/usr/bin/env python
-import os
 from app import create_app, db
 from app.models import User
 from flask.ext.script import Manager, Shell
-from flask.ext.login import login_required
 
-app = create_app(os.getenv("FLASK_CONFIG") or "default")
+app = create_app()
 manager = Manager(app)
 
 

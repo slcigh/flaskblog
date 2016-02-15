@@ -2,14 +2,11 @@
 # coding: utf8
 from flask.ext.admin.contrib import sqla
 from flask import url_for, redirect, request
-from flask.ext.admin import Admin, BaseView, expose, helpers
+from flask.ext.admin import expose, helpers
 from flask.ext.login import current_user, login_user, logout_user
 from wtforms import fields, widgets, validators
-from app.models import User, Post, Category, Tag
-from app import db
 from app.auth.forms import *
 from flask.ext.admin.base import AdminIndexView
-from app.auth.auth_config import REGCODE
 
 
 class AdminCategoryView(sqla.ModelView):

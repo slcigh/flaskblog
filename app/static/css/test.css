@@ -11,50 +11,56 @@
 /*}*/
 
 .nav-bg {
-    background: url('images/56.jpg') no-repeat;
     width: 100%;
     position: relative;
     height: auto;
-    background-size: 100%;
 }
 
 html {
     position: relative;
     width: 100%;
-    height: auto;
+    /*height: auto;*/
     left: 0;
     top: 0;
-    background: url('images/bg-wall.jpg') no-repeat fixed;
+    /*background: url('images/bg-wall.jpg') no-repeat fixed;*/
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: 100%;
+}
+
+.fill {
+    min-height: 100%;
+    height: 100%;
 }
 
 .full-width-div {
-    position: relative;
+    background-color: #ebebeb;
+    /*position: relative;*/
     width: 100%;
-    height: auto;
+    /*height: auto;*/
     left: 0;
     top: 0;
-    background: url('images/bg-wall.jpg') no-repeat fixed;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: 100%;
+    /*background: url('images/bg-wall.jpg') no-repeat fixed;*/
+    /*-webkit-background-size: cover;*/
+    /*-moz-background-size: cover;*/
+    /*-o-background-size: cover;*/
+    /*background-size: 100%;*/
 }
 
 .inside-bg-post {
-    background: url('images/98.jpg') no-repeat fixed;
-    border-top: 2px groove #9f9f9f;
-    border-bottom: 2px solid #9f9f9f;
-    border-right: 2px solid #9f9f9f;
-    border-left: 1px groove #9f9f9f;
+    /*background: url('images/98.jpg') no-repeat fixed;*/
+    background-color: #fafafa;
+    /*border-top: 1px solid #93a1a1;*/
+    /*border-bottom: 1px solid #93a1a1;*/
+    /*border-right: 1px solid #93a1a1;*/
+    /*border-left: 1px solid #9f9f9f;*/
 }
 
 .inside-bg-sidebar {
-    background: url('images/wood1.jpg') repeat fixed;
-    border: 2px groove #9f9f9f;
+    /*background: url('images/wood1.jpg') repeat fixed;*/
+    background-color: #fafafa;
+    /*border: 2px groove #9f9f9f;*/
 }
 
 .add-blank {
@@ -136,7 +142,7 @@ html {
     font-size: 60px;
     font-family: "courier new", monospace;
     font-weight: bolder;
-    color: #f0f0f0;
+    color: #1f292e;
 }
 
 .blog-description {
@@ -156,6 +162,7 @@ html {
     line-height: 36px;
     margin-bottom: 5px;
     clear: both;
+    font-family: 微软雅黑, serif;
     padding: 12px 0px 7px;
 }
 
@@ -220,6 +227,7 @@ a.cat {
 }
 
 .readmore {
+    margin-top: 5px;
     float: right;
 }
 
@@ -228,8 +236,8 @@ a.cat {
 }
 
 #categories {
-    background: url(images/15.jpg) no-repeat 0 10px;
-    padding: 7px 0 7px 22px;
+    /*background: url(images/15.jpg) no-repeat 0 10px;*/
+    padding: 1px 0 7px 22px;
 }
 
 .sidebar-title {
@@ -252,13 +260,28 @@ a.cat {
     list-style: none;
 }
 
-.cat li a {
-    margin: 0 0 8px 18px;
-    font-size: 23px;
-    font-weight: bold;
-    color: #3d3d3d;
-    font-family: 微软雅黑, serif;
+.cat ul {
+    margin-bottom: 4px;
 }
+
+.cat li {
+    background: url(images/li-bullet.png) no-repeat 1px 4px;
+    padding: 7px 0px 7px 22px;
+}
+
+.cat li a {
+    font-size: 14px;
+    color: #567467;
+    font-weight: bold;
+}
+
+/*.cat li a {*/
+/*margin: 0 0 8px 18px;*/
+/*font-size: 23px;*/
+/*font-weight: bold;*/
+/*color: #3d3d3d;*/
+/*font-family: 微软雅黑, serif;*/
+/*}*/
 
 .clear {
     clear: both;
@@ -422,4 +445,19 @@ a.cat {
 
 .footer a {
     color: #555555;
+}
+
+blockquote {
+    background: #ebebeb;
+    border-right: 2px solid #e7e7e7;
+    color: #828282;
+    line-height: 150%;
+    /*margin: 10px 10px 10px 10px;*/
+}
+
+blockquote p {
+    /*margin: 10px 10px 10px 10px;*/
+    padding: 15px 0px 10px 15px;
+    font-size: 18px;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
