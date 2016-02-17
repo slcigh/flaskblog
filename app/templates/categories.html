@@ -1,63 +1,62 @@
 {% extends 'base.html' %}
 {% block container_left %}
     <div class="col-sm-8 col-lg-8">
-                {% for post in  posts.items %}
-                    {% if post.not_hide %}
-                        <div class="new-post inside-bg-post"> <!-- start new-post -->
+        {% for post in  posts.items %}
+            {% if post.not_hide %}
+                <div class="new-post inside-bg-post"> <!-- start new-post -->
 
-                            <div class="date">
-                                <div class="main">
-                                    <div class="rightside">
-                                        <span>{{ post.timestamp }}</span>
-                                    </div>
-                                </div>
-                            </div> <!-- end date -->
+                    <div class="date">
+                        <div class="main">
+                            <div class="rightside">
+                                <span>{{ post.timestamp }}</span>
+                            </div>
+                        </div>
+                    </div> <!-- end date -->
 
-                            <p class="info">
-                                {% for i in post.tags %}
-                                    <a href="/tags/{{ i.name }}/1" rel="category tag">{{ i.name }}</a>&nbsp;
-                                {% endfor %} | <a href="/{{ post.category.name }}/1"
-                                                  class="cat">{{ post.category.name }}</a>
-                            </p>
+                    <p class="info">
+                        {% for i in post.tags %}
+                            <a href="/tags/{{ i.name }}/1" rel="category tag">{{ i.name }}</a>&nbsp;
+                        {% endfor %} | <a href="/{{ post.category.name }}/1"
+                                          class="cat">{{ post.category.name }}</a>
+                    </p>
 
-                            <h2><a href="{{ url_for('.post',id=post.id) }}">{{ post.title }}</a></h2>
-                            <h2><a href="{{ url_for('.post',id=post.id) }}">{{ post.title }}</a></h2>
+                    <h2><a href="{{ url_for('.post',id=post.id) }}">{{ post.title }}</a></h2>
 
 
-                            <blockquote>
-                                <p>
+                    <blockquote>
+                        <p>
 
-                                    {{ post.part | safe }}
+                            {{ post.part | safe }}
 
-                                </p>
+                        </p>
 
-                            </blockquote>
-                            <a class="btn btn-primary readmore" href="{{ url_for('.post',id=post.id) }}" role="button">
-                                readmore
-                            </a>
-                            <div class="clear"></div>
-                        </div> <!-- end new-post -->
-                        <div class="add-blank"></div>
-                    {% endif %}
-                {% endfor %}
-
+                    </blockquote>
+                    <a class="btn btn-primary readmore" href="{{ url_for('.post',id=post.id) }}" role="button">
+                        readmore
+                    </a>
+                    <div class="clear"></div>
+                </div> <!-- end new-post -->
+                <div class="add-blank"></div>
+            {% endif %}
+        {% endfor %}
 
 
 
-                <nav>
-                    <ul class="pager">
-                        {% if posts.has_prev %}
-                            <li><a href="{{ posts.prev_num }}">&laquo; Future </a></li>
-                        {% else %}
-                            <li class="disabled"><a href="#">&laquo; Future </a></li>
-                        {% endif %}
-                        {% if posts.has_next %}
-                            <li><a href="{{ posts.next_num }}">Past &raquo;</a></li>
-                        {% else %}
-                            <li class="disabled"><a href="">Past &raquo;<</a></li>
-                        {% endif %}
 
-                    </ul>
-                </nav>
-            </div>
+        <nav>
+            <ul class="pager">
+                {% if posts.has_prev %}
+                    <li><a href="{{ posts.prev_num }}">&laquo; Future </a></li>
+                {% else %}
+                    <li class="disabled"><a href="#">&laquo; Future </a></li>
+                {% endif %}
+                {% if posts.has_next %}
+                    <li><a href="{{ posts.next_num }}">Past &raquo;</a></li>
+                {% else %}
+                    <li class="disabled"><a href="">Past &raquo;<</a></li>
+                {% endif %}
+
+            </ul>
+        </nav>
+    </div>
 {% endblock %}

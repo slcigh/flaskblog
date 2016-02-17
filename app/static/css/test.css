@@ -16,19 +16,6 @@
     height: auto;
 }
 
-html {
-    position: relative;
-    width: 100%;
-    /*height: auto;*/
-    left: 0;
-    top: 0;
-    /*background: url('images/bg-wall.jpg') no-repeat fixed;*/
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: 100%;
-}
-
 .fill {
     min-height: 100%;
     height: 100%;
@@ -36,31 +23,28 @@ html {
 
 .full-width-div {
     background-color: #ebebeb;
-    /*position: relative;*/
+    position: relative;
     width: 100%;
-    /*height: auto;*/
+    height: auto;
     left: 0;
     top: 0;
-    /*background: url('images/bg-wall.jpg') no-repeat fixed;*/
-    /*-webkit-background-size: cover;*/
-    /*-moz-background-size: cover;*/
-    /*-o-background-size: cover;*/
-    /*background-size: 100%;*/
+    background: url('images/bg1.jpg') no-repeat fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: 100%;
 }
 
 .inside-bg-post {
-    /*background: url('images/98.jpg') no-repeat fixed;*/
+    /*background: url('images/bg1.jpg') no-repeat fixed;*/
     background-color: #fafafa;
-    /*border-top: 1px solid #93a1a1;*/
-    /*border-bottom: 1px solid #93a1a1;*/
-    /*border-right: 1px solid #93a1a1;*/
-    /*border-left: 1px solid #9f9f9f;*/
+    border: 2px solid #ebebeb;
 }
 
 .inside-bg-sidebar {
     /*background: url('images/wood1.jpg') repeat fixed;*/
     background-color: #fafafa;
-    /*border: 2px groove #9f9f9f;*/
+    border: 2px solid #ebebeb;
 }
 
 .add-blank {
@@ -146,9 +130,12 @@ html {
 }
 
 .blog-description {
-    font-size: 20px;
+    font-size: 18px;
     margin-left: 7%;
+    margin-top: 1%;
     color: #9f9f9f;
+    font-style: italic;
+    font-family: 微软雅黑, serif;
 }
 
 .new-post {
@@ -441,11 +428,13 @@ a.cat {
     padding: 3% 53% 2% 5%;
     color: #817175;
     height: 50px;
+    position: absolute;
+    bottom: 0;
 }
 
-.footer a {
-    color: #555555;
-}
+/*.footer a span a {*/
+/*color: #2A00FF;*/
+/*}*/
 
 blockquote {
     background: #ebebeb;
