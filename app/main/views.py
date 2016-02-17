@@ -17,7 +17,7 @@ def get_tags():
 @main.route('/')
 @main.route('/<int:page>')
 def index(page=1):
-    posts = Post.query.order_by(Post.id.desc()).paginate(page, per_page=5, error_out=False)
+    posts = Post.query.order_by(Post.timestamp.desc()).paginate(page, per_page=5, error_out=False)
     categories = Category.query.all()
     return render_template("index.html", posts=posts, categories=categories, tags=get_tags())
 
